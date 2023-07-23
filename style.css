@@ -1,0 +1,431 @@
+.cube {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1.5s;
+    cursor: pointer;
+    margin-left: 50px;
+  }
+
+  .cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    transition: transform 1s;
+  }
+
+  .cube.show-front {
+    transform: translateZ(-100px) rotateY(0deg);
+  }
+
+  .cube.show-right {
+    transform: translateZ(-100px) rotateY(-90deg);
+  }
+
+  .cube.show-back {
+    transform: translateZ(-100px) rotateY(-180deg);
+  }
+
+  .cube.show-left {
+    transform: translateZ(-100px) rotateY(90deg);
+  }
+
+  .cube__face--front {
+    transform: rotateY(0deg) translateZ(100px);
+  }
+
+  .cube__face--right {
+    transform: rotateY(90deg) translateZ(100px);
+  }
+
+  .cube__face--back {
+    transform: rotateY(180deg) translateZ(100px);
+  }
+
+  .cube__face--left {
+    transform: rotateY(-90deg) translateZ(100px);
+  }
+
+  .cube__face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+  }
+
+
+
+  label {
+    margin-right: 10px;
+  }
+
+  .cube__face img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+
+  .ad-container {
+    position: relative;
+    width: 728px;
+    height: 90px;
+    background-image: url('img/byFilling970x120.png');
+    overflow: hidden;
+}
+
+.car-image {
+    position: absolute;
+    top: 0;
+    right: -200px; /* Starting position outside the screen */
+    height: 90px;
+    width: auto;
+    transition: right 2s, transform 1s;
+}
+
+.car-image.flipped {
+    transform: rotateY(180deg);
+}
+
+.join-image {
+    position: absolute;
+    top: 0;
+    left: 728px; /* Starting position outside the screen */
+    height: 100px;
+    transition: left 2s, transform 0.5s;
+    cursor: pointer;
+}
+
+.slide-image.shake {
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(0); }
+    75% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+
+.expanded-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+}
+
+.expanded-image.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.expanded-image img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.slide-image {
+    position: absolute;
+    top: 35px;
+    left: -300px; /* Starting position outside the screen */
+    height: 20px;
+    transition: left 3s;
+}
+
+.slide-image.slide-in {
+    left: 250px; /* Adjust the value to control the stopping position */
+}
+.car-point {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    animation: blink 1s infinite;
+    right: -100px; /* Starting position outside the screen */
+    transition: right 2s, transform 1s;
+    margin-right: 100px;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+.flip-card {
+  perspective: 1000px;
+  width: 300px;
+  height: 600px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(-180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #fff;
+}
+
+.flip-card-back {
+  background-color: #f1f1f1;
+  transform: rotateY(180deg);
+}
+
+.flip-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* CSS for the button */
+.banner-button {
+  position: absolute;
+  top: 60%;
+  left: 15%;
+  font-size: 22px;
+  /* transform: translate(-50%, -50%); */
+  background-color: #F75A00;
+  border: #F75A00;
+  margin-top: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
+  animation: pulsate-bck 0.5s infinite;
+}
+
+.back-button{
+  top: 40%;
+  left: 20%;
+}
+
+
+
+.banner-button:hover {
+  cursor: pointer !important;
+  font-weight: 700;
+}
+
+@keyframes pulsate-bck {
+  0% {
+      transform: scale(1);
+  }
+
+  50% {
+      transform: scale(0.9);
+  }
+
+  100% {
+      transform: scale(1);
+  }
+}
+
+
+.card-container {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  /* Start off-screen to the left */
+  width: 100%;
+  height: 100vh;
+  background-color: #f1f1f1;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* Semi-transparent background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  /* Initially hidden */
+  pointer-events: none;
+  /* Disable interaction */
+  transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  padding: 40px;
+}
+
+.close-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 40px;
+  color: #494949;
+  cursor: pointer;
+}
+
+.card-container h2 {
+  font-size: 38px;
+  color: #FF151F;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card-container p {
+  font-size: 28px;
+  color: #495056;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.headline {
+  font-size: 44px;
+  color: #FF151F;
+  text-align: center;
+  font-weight: 800;
+}
+.game-container {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  height: 100%;
+  background-image: url('path/to/gas-station-image.jpg');
+  background-size: cover;
+}
+
+
+.hidden {
+  opacity: 0;
+}
+
+.sageButton{
+  left: 23%;
+  background-color: #f1f1f1;
+  color: #12233D;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.sageSite{
+  color: #f1f1f1;
+  /* margin-top: 50px; */
+}
+
+.openCard{
+  color: #F75A00;
+}
+
+
+
+
+.card-flip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content-flip {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  color: #e8e8e8;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.content-flip .heading-flip {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.content-flip .para-flip {
+  line-height: 1.5;
+}
+
+.content-flip .btn {
+  color: #e8e8e8;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-flip::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  z-index: -1;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card-flip:hover::before {
+  height: 100%;
+}
+
+.card-flip:hover {
+  box-shadow: none;
+}
+
+.card-flip:hover .btn {
+  color: #212121;
+  background: #e8e8e8;
+}
+
+.content-flip .btn:hover {
+  outline: 2px solid #e8e8e8;
+  background: transparent;
+  color: #e8e8e8;
+}
+
+.content-flip .btn:active {
+  box-shadow: none;
+}
+
+.para-flip{
+  font-size: 18px !important;
+}
+
+.heading-flip{
+  font-size: 23px !important;
+}
